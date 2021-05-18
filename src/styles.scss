@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+
+$display: Arapey, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$custom-typography: mat.define-typography-config(
+    $font-family: $display,
+);
+
+$digit-primary: mat.define-palette(mat.$cyan-palette);
+$digit-accent: mat.define-palette(mat.$pink-palette);
+$digit-warn: mat.define-palette(mat.$deep-orange-palette);
+
+$digit-theme: mat.define-light-theme((
+  color: (
+    primary: $digit-primary,
+    accent: $digit-accent,
+    warn: $digit-warn,
+  )
+));
+
+@include mat.core($custom-typography);
+@include mat.all-component-themes($digit-theme);
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    background-color: #f9f9f9;
+}
