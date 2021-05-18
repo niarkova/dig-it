@@ -1,0 +1,39 @@
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 150px);
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 7vw;
+}
+
+.search-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-row {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.search-input {
+    flex-grow: 1;
+    max-width: 300px;
+    font-size: 16px;
+}
+
+.search-button {
+    height: 61px;
+    margin-left: 15px;
+    padding: 0 60px;
+    font-size: 22px;
+    letter-spacing: .5px;
+}
+
+.button-accent-inverse {
+    background: #ff8bc8;
+    color: #6b0057;
+}

@@ -1,5 +1,17 @@
 <div>
+  <app-header></app-header>
   <main>
+      <form>
+        <h1 class="search-title mat-display-2">what would you like to grow?
+        </h1>
+        <div class="search-row">
+          <mat-form-field fxFlex appearance="fill" class="search-input">
+            <mat-label>Enter plant name</mat-label>
+            <input type="search" matInput autofocus>
+          </mat-form-field>
+          <button type="submit" mat-flat-button color="accent" class="search-button button-accent-inverse">Search!</button>
+        </div>
+      </form>
       <router-outlet></router-outlet>
   </main>
 </div>
