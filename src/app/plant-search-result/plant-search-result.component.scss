@@ -4,7 +4,7 @@
 }
 
 .plant-card-img {
-    background-color: #eef7dc;
+    background-color: #ffecf7;
     position: absolute;
     width: 180px;
     height: 120px;
@@ -18,7 +18,7 @@
 }
 
 .plant-card:nth-child(3n + 3) .plant-card-img {
-    background-color: #ffecf7;
+    background-color: #eef7dc;
 }
 
 .plant-info-list {
@@ -26,12 +26,26 @@
     margin-top: 0;
     margin-left: -24px;
     margin-right: -24px;
+    margin-bottom: 0;
     background-color: #f5fff1;
+
+    &:empty {
+        display: none;
+    }
 }
 
-.plant-desc {
+.plant-section {
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+h3 {
+    letter-spacing: .5px;
+    border-bottom: 1px dashed #ccc;
+}
+
+p {
     max-width: 700px;
-    margin: 25px 0 35px;
 }
 
 .button-primary-light {

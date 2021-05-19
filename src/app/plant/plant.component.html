@@ -1,0 +1,66 @@
+<ol class="list-breadcrumbs">
+    <li class="breadcrumb-item" [attr.aria-current]="false">
+        <a
+            routerLink="/"
+            class="button-link"
+            mat-button
+            property="item"
+            typeof="WebPage">
+            <span property="name">
+                Search
+            </span>
+        </a>
+    </li>
+    <li class="breadcrumb-item" [attr.aria-current]="true">
+        <a
+            routerLink="/"
+            class="button-link"
+            mat-button
+            property="item"
+            typeof="WebPage">
+            <span property="name">
+                {{ plant?.attributes?.name }}
+            </span>
+        </a>
+    </li>
+</ol>
+<div *ngIf="plant" class="plant-row">
+    <img class="plant-img" *ngIf="plant.attributes.main_image_path.indexOf('amazon') !== -1" src="{{plant.attributes.main_image_path}}" loading="lazy" alt="{{plant.attributes.name}}">
+    <div class="plant-right">
+        <section>
+            <div class="title">
+                <h1 class="mat-display-2">{{ plant.attributes?.name }}</h1><i>{{ plant.attributes?.binomial_name }}</i>
+            </div>
+
+            <ul class="list-unstyled">
+                <li>
+                    {{ plant.attributes?.description }}
+                </li>
+                <li>
+                    <strong>Also known as:</strong>
+                    <span class="info">{{ plant.attributes?.common_names.join(', ').toLowerCase() }}</span>
+                </li>
+                <li>
+                    <strong>Row spacing:</strong>
+                    <span class="info">{{ plant.attributes?.row_spacing }} centimeters / {{ plant.attributes?.row_spacing | cmToInches }} inches</span>
+                </li>
+                <li>
+                    <strong>Spread:</strong>
+                    <span class="info">{{ plant.attributes?.spread }} centimeters / {{ plant.attributes?.spread | cmToInches }} inches</span>
+                </li>
+                <li>
+                    <strong>Height:</strong>
+                    <span class="info">{{ plant.attributes?.height }} centimeters / {{ plant.attributes?.height | cmToInches }} inches</span>
+                </li>
+                <li>
+                    <strong>Sun requirements:</strong>
+                    <span class="info">{{ plant.attributes?.sun_requirements }}</span>
+                </li>
+                <li>
+                    <strong>Sowing method:</strong>
+                    <span class="info">{{ plant.attributes?.sowing_method }}</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>

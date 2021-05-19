@@ -6,7 +6,7 @@
         <mat-label>enter a plant name</mat-label>
         <input type="search" matInput autofocus formControlName="searchString" required>
         <mat-error *ngIf="searchForm.controls.searchString.hasError('required')">
-          Type something, like "<u>delicata squash</u>"
+          Type something, like "<u (click)="searchAndSetInput('delicata squash')" class="pointer">delicata squash</u>"
         </mat-error>
       </mat-form-field>
       <button type="submit" mat-flat-button color="accent" class="search-button button-accent-light">Search</button>

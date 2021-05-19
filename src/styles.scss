@@ -9,7 +9,7 @@ $custom-typography: mat.define-typography-config(
     $subheading-1: mat.define-typography-level(23px, 1.5, 400),
     $subheading-2: mat.define-typography-level(20px, 1.5, 400),
     $button: mat.define-typography-level(18px, 1, 400),
-    $body-1: mat.define-typography-level(18px, 1, 400),
+    $body-1: mat.define-typography-level(18px, 1.5, 400),
 );
 
 $digit-primary: mat.define-palette(mat.$cyan-palette);
@@ -49,9 +49,32 @@ body {
     overflow: visible;
 }
 
+.mat-button-base {
+    .material-icons {
+        position: relative;
+        top: -1px;
+        height: 18px;
+        width: 18px;
+        font-size: 18px;
+        vertical-align: middle;
+    }
+}
+
+.button-link {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    color: #00838f;
+    font-size: inherit;
+    text-decoration: underline;
+    text-decoration-color: inherit;
+    cursor: pointer;
+}
+
 .list-unstyled {
     list-style: none;
-    margin-left: 10px;
+    margin: 0;
+    padding: 0;
 }
 
 .list-icons {
@@ -73,14 +96,48 @@ body {
     }
 }
 
+.list-breadcrumbs {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin: 0 0 30px;
+    padding: 0;
+    font-weight: 400;
+    list-style: none;
+
+    .breadcrumb-item .button-link {
+        text-decoration: none;
+        padding: 3px;
+    }
+
+    .breadcrumb-item:not(:last-child):after {
+        content: '/';
+        position: relative;
+        top: 1px;
+        margin: 0 4px;
+        font-size: 1.1em;
+        color: #888;
+    }
+}
+
 .text-serif {
     font-family: $serif;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .list-x {
-    padding: 0;
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
+    align-items: baseline;
+    padding: 0;
+
+    li {
+        padding: 0;
+    }
 
     & > li + li {
         margin-left: 40px;

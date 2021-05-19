@@ -7,7 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class GrowStuffApiService {
   constructor(private httpClient: HttpClient) { }
 
-  public getPlant(plant: string) {
+  public searchPlant(plant: string) {
     return this.httpClient.get(`https://openfarm.cc/api/v1/crops/?filter=${plant}`);
+  }
+
+  public getPlant(plant: string) {
+    return this.httpClient.get(`https://openfarm.cc/api/v1/crops/${plant}`);
   }
 }

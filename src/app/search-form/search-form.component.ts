@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GrowStuffApiService } from '../grow-stuff-api.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search-form',
@@ -20,16 +20,24 @@ export class SearchFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const searchString = this.searchForm.value.searchString.trim();
+    const plant = this.searchForm.value.searchString.trim();
 
-    console.log(searchString, this)
-    if(searchString) {
-      this.apiService.getPlant(searchString).subscribe((data) => {
-        if(data) {
-          this.results = data;
-        }
-      });
+    if(plant) {
+      this.search(plant);
     }
   }
 
+  search(plant: string) {
+    this.apiService.searchPlant(plant).subscribe((data) => {
+      if(data) {
+        this.results = data;
+      }
+    });
+  }
+
+  searchAndSetInput(plant: string) {
+    this.searchForm.controls['searchString'].setValue(plant);
+
+    this.search(plant);
+  }
 }
