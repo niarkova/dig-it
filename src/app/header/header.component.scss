@@ -2,10 +2,10 @@
     position: relative;
     height: 150px;
     align-items: flex-start;
-    padding-top: 35px;
-    background-image: linear-gradient(135deg, #45eeff 10%, #28C76F 100%);
+    padding-top: 25px;
+    background-image: linear-gradient(0deg, #fff, #fff9b7 6%, #45eeff 45%, #10f5e0 80%);
     justify-content: center;
-    font-size: 46px;
+    font-size: 36px;
 }
 
 .border-image {
@@ -17,7 +17,7 @@
     background-image: url('/assets/images/bg.png');
     background-repeat: repeat-x;
     background-size: 260px;
-    background-position: 21% 100%;
+    background-position: 18% 100%;
     pointer-events: none;
 }
 

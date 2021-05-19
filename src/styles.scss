@@ -5,11 +5,16 @@ $serif: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helve
 
 $custom-typography: mat.define-typography-config(
     $font-family: $display,
+    $title: mat.define-typography-level(23px, 1.5, 400),
+    $subheading-1: mat.define-typography-level(23px, 1.5, 400),
+    $subheading-2: mat.define-typography-level(20px, 1.5, 400),
+    $button: mat.define-typography-level(18px, 1, 400),
+    $body-1: mat.define-typography-level(18px, 1, 400),
 );
 
 $digit-primary: mat.define-palette(mat.$cyan-palette);
 $digit-accent: mat.define-palette(mat.$pink-palette);
-$digit-warn: mat.define-palette(mat.$deep-orange-palette);
+$digit-warn: mat.define-palette(mat.$gray-palette, $text: 600 );
 
 $digit-theme: mat.define-light-theme((
   color: (
@@ -30,4 +35,58 @@ body {
 
 .mat-form-field {
     font-family: $serif;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.02),
+        0 2px 4px rgba(0,0,0,0.02),
+        0 4px 8px rgba(0,0,0,0.02),
+        0 8px 16px rgba(0, 0, 0, 0.02);
+}
+
+.mat-expansion-panel .mat-content {
+    overflow: visible;
+}
+
+.list-unstyled {
+    list-style: none;
+    margin-left: 10px;
+}
+
+.list-icons {
+    .material-icons {
+        color: #888;
+    }
+
+    & > li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    & > li > .material-icons {
+        margin-right: 12px;
+        font-size: 25px;
+        height: 25px;
+        width: 25px;
+    }
+}
+
+.text-serif {
+    font-family: $serif;
+}
+
+.list-x {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    & > li + li {
+        margin-left: 40px;
+    }
+}
+
+.width-100 {
+    width: 100%;
 }

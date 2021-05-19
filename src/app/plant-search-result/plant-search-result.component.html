@@ -1,0 +1,54 @@
+<div *ngIf="resultList.length > 0; else emptyState">
+    <h2>{{ resultList.length }} results</h2>
+    <!-- <mat-acscordion *ngIf="results$ | async as results"> -->
+        <mat-accordion >
+        <!-- {{results | json}} -->
+        <mat-expansion-panel class="plant-card" hideToggle *ngFor="let r of resultList">
+            <!-- {{r.attributes.main_image_path.contains('amazon') ? r.attributes.main_image_path : 'https://openfarm.cc/' + r.attributes.main_image_path}} -->
+            <mat-expansion-panel-header class="plant-card-header">
+                <img class="plant-card-img" src="{{r.attributes.main_image_path.indexOf('amazon') !== -1 ? r.attributes.main_image_path : 'https://openfarm.cc/' + r.attributes.main_image_path}}" loading="lazy" alt="{{r.attributes.name}}">
+                <mat-panel-title>
+                    {{r.attributes.name}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul class="list-icons list-x plant-info-list">
+                <li *ngIf="r.attributes.spread">
+                    <span class="material-icons" tooltip="'Spread distance'">
+                        swap_horiz
+                    </span>
+                    {{ r.attributes.spread | cmToInches }} inches
+                </li>
+                <li *ngIf="r.attributes.row_spacing">
+                    <span class="material-icons" tooltip="'Row spacing'">
+                        swap_vert
+                    </span>
+                    {{ r.attributes.row_spacing | cmToInches}} inches
+                </li>
+                <li *ngIf="r.attributes.sun_requirements">
+                    <span class="material-icons" tooltip="'Sun requirements'">
+                        {{ r.attributes.sun_requirements.indexOf('full') ? 'brightness_high' : 'brightness_medium'}}
+                    </span>
+                    {{ r.attributes.sun_requirements }}
+                </li>
+                <li *ngIf="r.attributes.sowing_method" class="width-100">
+                    <span class="material-icons" tooltip="'Sowing method'">
+                        local_florist
+                    </span>
+                    {{ r.attributes.sowing_method }}
+                </li>
+            </ul>
+            <h3 class="plant-desc" *ngIf="r.attributes.description">
+                {{ r.attributes.description }}
+            </h3>
+            <button type="button" mat-flat-button color="primary" class="width-100 button-primary-light">
+                All details
+                <span class="material-icons">
+                    arrow_forward
+                </span>
+            </button>
+        </mat-expansion-panel>
+    </mat-accordion>
+ </div>
+<ng-template #emptyState>
+    No results. Try something else, like <u>"Delicata squash"</u>
+</ng-template>
