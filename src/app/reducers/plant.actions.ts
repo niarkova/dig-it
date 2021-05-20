@@ -1,24 +1,18 @@
 import { Action } from "@ngrx/store";
 
-export const SELECT = 'SELECT';
-export const UNSELECT = 'UNSELECT';
 export const ADD_PLANT = 'ADD_PLANT';
-
-export class SelectAction implements Action {
-    readonly type = SELECT;
-    constructor(public payload: any) { }
-}
-
-export class UnselectAction implements Action {
-    readonly type = UNSELECT;
-}
+export const REMOVE_PLANT = 'REMOVE_PLANT';
 
 export class AddPlantAction implements Action {
     readonly type = ADD_PLANT;
     constructor(public payload: any) { }
 }
 
+export class RemovePlantAction implements Action {
+    readonly type = REMOVE_PLANT;
+    constructor(public payload: any) { }
+}
+
 export type Actions
-    = SelectAction
-    | AddPlantAction
-    | UnselectAction;
+    = AddPlantAction
+    | RemovePlantAction;

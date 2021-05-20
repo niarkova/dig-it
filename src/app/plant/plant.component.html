@@ -44,8 +44,13 @@
                 </li>
             </ul>
         </section>
-        <button type="button" mat-flat-button color="primary" (click)="addPlant()">
-            <span class="material-icons">add</span> Add
-        </button>
+        <div class="button-footer">
+            <button type="button" mat-flat-button color="primary" (click)="addPlant()">
+                <span class="material-icons">add</span> Add
+            </button>
+            <button type="button" mat-flat-button color="warn" (click)="removePlant()">
+                <span class="material-icons">clear</span> Remove
+            </button>
+        </div>
     </div>
 </div>

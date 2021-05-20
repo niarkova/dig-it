@@ -14,6 +14,8 @@ import { CmToInchesPipe } from './pipes/cm-to-inches.pipe';
 import { PlantComponent } from './plant/plant.component';
 import { StoreModule } from '@ngrx/store';
 import { plantReducer } from './reducers/plant.reducer';
+import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { plantReducer } from './reducers/plant.reducer';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({plant: plantReducer}),
+    StoreModule.forRoot({ plants: plantReducer }),
+    !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25 }) : [],
   ],
   providers: [],
   bootstrap: [AppComponent]

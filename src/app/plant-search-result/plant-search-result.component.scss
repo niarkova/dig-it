@@ -14,11 +14,11 @@
 }
 
 .plant-card:nth-child(even) .plant-card-img {
-    background-color: #EBFEFF;
+    background-color: #d8f5e0;
 }
 
 .plant-card:nth-child(3n + 3) .plant-card-img {
-    background-color: #eef7dc;
+    background-color: #e1f3da;
 }
 
 .plant-info-list {
@@ -35,8 +35,8 @@
 }
 
 .plant-section {
-    margin-top: 15px;
-    margin-bottom: 35px;
+    margin-top: 25px;
+    margin-bottom: 40px;
 }
 
 h3 {
@@ -51,4 +51,8 @@ p {
 .button-primary-light {
     background-color: #b2ebf2;
     color: #00838f;
+}
+
+.actions {
+    justify-content: flex-end;
 }

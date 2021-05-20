@@ -7,6 +7,14 @@
                 <mat-panel-title>
                     {{r.attributes.name}}
                 </mat-panel-title>
+                <mat-panel-description class="actions" (click)="$event.stopPropagation();" >
+                    <button type="button" mat-mini-fab color="primary" (click)="addPlant(r);$event.stopPropagation();" matTooltip="Add" matTooltipPosition="above" matTooltipShowDelay="500">
+                        <span class="material-icons">add</span>
+                    </button>
+                    <button type="button" mat-mini-fab color="warn" (click)="removePlant(r);$event.stopPropagation();" matTooltip="Remove" matTooltipPosition="above" matTooltipShowDelay="500">
+                        <span class="material-icons">clear</span>
+                    </button>
+                </mat-panel-description>
             </mat-expansion-panel-header>
             <ul class="list-icons list-x plant-info-list">
                 <li *ngIf="r.attributes.spread">

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
 
 @Component({
   selector: 'app-plant-search-result',
@@ -9,10 +11,23 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PlantSearchResultComponent implements OnInit {
   @Input() resultList: any[] = [];
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    console.log(this)
+  }
+
+  addPlant(plant: any) {
+    this.store.dispatch({
+      type: 'ADD_PLANT',
+      payload: plant,
+    });
+  }
+
+  removePlant(plant: any) {
+    this.store.dispatch({
+      type: 'REMOVE_PLANT',
+      payload: plant,
+    });
   }
 
 }

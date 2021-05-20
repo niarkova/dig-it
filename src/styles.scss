@@ -14,7 +14,7 @@ $custom-typography: mat.define-typography-config(
 
 $digit-primary: mat.define-palette(mat.$cyan-palette);
 $digit-accent: mat.define-palette(mat.$pink-palette);
-$digit-warn: mat.define-palette(mat.$gray-palette, $text: 600 );
+$digit-warn: mat.define-palette(mat.$gray-palette, $default: 200, $text: 600 );
 
 $digit-theme: mat.define-light-theme((
   color: (
@@ -37,12 +37,38 @@ body {
     font-family: $serif;
 }
 
+.mat-tooltip {
+    font-family: $serif;
+    font-size: 13px;
+}
+
+.mat-form-field.mat-form-field-appearance-fill {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active
+    {
+        -webkit-box-shadow: 0 0 0 30px #EFEFEF inset !important;
+    }
+}
+
 .mat-expansion-panel:not([class*=mat-elevation-z]) {
     box-shadow:
         0 1px 2px rgba(0,0,0,0.02),
         0 2px 4px rgba(0,0,0,0.02),
         0 4px 8px rgba(0,0,0,0.02),
         0 8px 16px rgba(0, 0, 0, 0.02);
+}
+
+.mat-expansion-panel:not(.mat-expanded):not(:first-child):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0,0,0,.08);
 }
 
 .mat-expansion-panel .mat-content {
@@ -70,6 +96,18 @@ body {
     text-decoration: none;
     text-decoration-color: inherit;
     cursor: pointer;
+}
+
+.mat-button-base + .mat-button-base {
+    margin-left: 14px;
+}
+
+.mat-button-base.mat-mini-fab {
+    box-shadow: none;
+
+    &:not([disabled]):active {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, .15);
+    }
 }
 
 .list-unstyled {

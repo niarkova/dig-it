@@ -1,3 +1,3 @@
 export interface AppState {
-    readonly plant: any[];
+    readonly plants: any[];
 }
