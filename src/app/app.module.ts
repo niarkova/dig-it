@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { CmToInchesPipe } from './pipes/cm-to-inches.pipe';
 import { PlantComponent } from './plant/plant.component';
+import { StoreModule } from '@ngrx/store';
+import { plantReducer } from './reducers/plant.reducer';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { PlantComponent } from './plant/plant.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({plant: plantReducer}),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -49,6 +49,7 @@ body {
     overflow: visible;
 }
 
+.button-link,
 .mat-button-base {
     .material-icons {
         position: relative;
@@ -66,7 +67,7 @@ body {
     border: 0;
     color: #00838f;
     font-size: inherit;
-    text-decoration: underline;
+    text-decoration: none;
     text-decoration-color: inherit;
     cursor: pointer;
 }

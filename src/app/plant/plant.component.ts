@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GrowStuffApiService } from '../grow-stuff-api.service';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
 
 @Component({
   selector: 'app-plant',
@@ -10,9 +13,12 @@ import { GrowStuffApiService } from '../grow-stuff-api.service';
 export class PlantComponent implements OnInit {
   plantId: string;
   plant: any;
+  plants: Observable<any[]>;
 
-  constructor(private apiService: GrowStuffApiService, private actRoute: ActivatedRoute) {
+  constructor(private apiService: GrowStuffApiService, private actRoute: ActivatedRoute,  private store: Store<AppState>) {
     this.plantId = this.actRoute.snapshot.params.id;
+
+    this.plants = this.store.select(state => state.plant);
    }
 
   ngOnInit() {
@@ -23,4 +29,10 @@ export class PlantComponent implements OnInit {
     });
   }
 
+  addPlant() {
+    this.store.dispatch({
+      type: 'ADD_PLANT',
+      payload: this.plant,
+    });
+  }
 }

@@ -1,29 +1,11 @@
-<ol class="list-breadcrumbs">
-    <li class="breadcrumb-item" [attr.aria-current]="false">
-        <a
-            routerLink="/"
-            class="button-link"
-            mat-button
-            property="item"
-            typeof="WebPage">
-            <span property="name">
-                Search
-            </span>
-        </a>
-    </li>
-    <li class="breadcrumb-item" [attr.aria-current]="true">
-        <a
-            routerLink="/"
-            class="button-link"
-            mat-button
-            property="item"
-            typeof="WebPage">
-            <span property="name">
-                {{ plant?.attributes?.name }}
-            </span>
-        </a>
-    </li>
-</ol>
+<nav class="list-breadcrumbs">
+    <a
+        routerLink="/"
+        class="button-link">
+        <span class="material-icons">keyboard_backspace</span>
+        Back to search
+    </a>
+</nav>
 <div *ngIf="plant" class="plant-row">
     <img class="plant-img" *ngIf="plant.attributes.main_image_path.indexOf('amazon') !== -1" src="{{plant.attributes.main_image_path}}" loading="lazy" alt="{{plant.attributes.name}}">
     <div class="plant-right">
@@ -62,5 +44,8 @@
                 </li>
             </ul>
         </section>
+        <button type="button" mat-flat-button color="primary" (click)="addPlant()">
+            <span class="material-icons">add</span> Add
+        </button>
     </div>
 </div>
